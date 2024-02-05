@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="browser.css">
+    <title>Browser-Detecter</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Browser:</h2>
+        <div class="logos">
+            <img class="chrome" src="./img/chrome.png" alt="chrome" title="Google Chrome">
+            <img class="edge" src="./img/edge.png" alt="edge" title="Microsoft Edge">
+            <img class="firefox" src="./img/firefox.png" alt="firefox" title="Mozilla Firefox">
+        </div>
+    </div>
+
+    <script>
+        let userAgent = navigator.userAgent
+        let browser;
+
+        if(userAgent.match(/edg/i)){
+            browser = "edge"
+        }
+        else if(userAgent.match(/chrome|chromium|crios/i)){
+            browser = "chrome"
+        }
+        else{
+            alert("Other browser")
+        }
+
+        const logo = document.querySelector(`.logos .${browser}`)
+        if(logo != null){
+            logo.style.opacity = 1
+        }
+    </script>
+</body>
+</html>
